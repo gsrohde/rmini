@@ -28,4 +28,4 @@ jobs:
         with:
           args: c('--no-examples', '--no-tests', '--no-manual', '--ignore-vignettes', '--as-cran')
           build_args: c("--no-manual", "--no-build-vignettes")
-          error-on: ${{ format('error') }}
+          error-on: c('error')
