@@ -39,3 +39,5 @@ jobs:
           args: c('--no-examples', '--no-tests', '--no-manual', '--ignore-vignettes', '--as-cran')
           build_args: ${{ github.event.inputs.build_args }}
           error-on:  ${{ github.event.inputs.error-on }}
+          build_args: "\"--no-build-vignettes\""
+          error-on:  c("warning")
