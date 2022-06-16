@@ -3,6 +3,16 @@
 on:
   push:
   workflow_dispatch:
+    inputs:
+      # What arguments should be passed to "R CMD check"?
+      build_args:
+        description: 'Value for build_args'
+        type: string
+        default: c("--no-manual", "--no-build-vignettes")
+      error-on:
+        description: 'Value for error-on'
+        type: string
+        default: '"error"'
 
 name: R-CMD-check
 
@@ -27,5 +37,5 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         with:
           args: c('--no-examples', '--no-tests', '--no-manual', '--ignore-vignettes', '--as-cran')
-          build_args: c("--no-manual", "--no-build-vignettes")
-          error-on: c("error")
+          build_args: ${{ github.event.inputs.build_args }}
+          error-on:  ${{ github.event.inputs.error-on }}
