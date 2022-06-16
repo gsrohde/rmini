@@ -47,4 +47,4 @@ jobs:
           #build_args: "\"--no-build-vignettes\""
           #error-on:  c("warning")
           build_args: "'--no-build-vignettes'"
-          error-on:  "'warning'"
+          error-on:  readChar('./error-on', 5)
